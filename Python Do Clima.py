@@ -49,25 +49,21 @@ def clima_python():
     
 janela.title("Python Clima")
 #janela.geometry("300x300")
-
+load = Image.open("imagens\python do clima.png")
+render = ImageTk.PhotoImage(load)
 
 texto_orientação = Label(janela, text="Seja Bem vindo Ao Python Clima!")
 texto_orientação.grid(column=0, row=0, padx=10, pady=20)
-
 
 texto_cidade = Label(janela, text="Insira aqui a cidade desejada", )
 texto_cidade.grid(column=0, row=1, padx=10, pady=20)
 city=Entry(janela)
 city.place(x=43, y=55)
 
-
 botao = Button(janela, text="Descobrir o clima", command=clima_python)
 botao.grid(column=0, row=2, padx=10, pady=10)
 
 texto_clima = Label(janela, text="")
 texto_clima.grid(column=0, row=3, padx=10, pady=10)
-
-#erro_janela = label(janela, text="")
-#erro_janela.grid(column=0, row=4)
 
 janela.mainloop()
