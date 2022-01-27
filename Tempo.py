@@ -1,18 +1,22 @@
 from ast import Return
 from cProfile import label
 from distutils import command
+from dotenv import load_dotenv
+from PIL import Image, ImageTk
+import os
 import requests
 from tkinter import *
 
+load_dotenv()
 janela = Tk()
 
-API_KEY = "106dc89a610c7f04f0ebbd6186596a19"
+API_KEY = os.getenv("API_KEY")
+
 base_url = "http://api.openweathermap.org/data/2.5/weather"
 #http://api.openweathermap.org/data/2.5/weather?id=524901&appid={API_KEY}&lang={pt_br}#
 
 def clima_python():
     #city = input("Coloque a cidade desejada: ")
-    #city = "maringa"
     request_url = f"{base_url}?appid={API_KEY}&q={city}&lang=pt_br"
     response = requests.get(request_url)
   
