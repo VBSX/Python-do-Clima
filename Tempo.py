@@ -2,19 +2,13 @@ from cProfile import label
 from distutils import command
 import requests
 from tkinter import *
+
 janela = Tk()
 
 API_KEY = "106dc89a610c7f04f0ebbd6186596a19"
 base_url = "http://api.openweathermap.org/data/2.5/weather"
 #http://api.openweathermap.org/data/2.5/weather?id=524901&appid={API_KEY}&lang={pt_br}#
 
-#Para rodar o código sem precisar da interface virtual siga os pasos abaixo 
-"""
-Comente a função clima_python e faça a indentação correta;
-Ative a variavel city com input
-
-
-"""
 def clima_python():
     #city = input("Coloque a cidade desejada: ")
     #city = "maringa"
@@ -29,16 +23,6 @@ def clima_python():
         temperatura = round(data["main"]["temp"] - 273.15 , 2)
         sensação_termica = round(data["main"]['feels_like'] - 273.15 , 2)
         temperatura_max = round(data["main"]['temp_max'] - 273.15 , 2)
-       
-        """ e comente o "Clim" junto com o "texto_clima"
-        Tire os comentarios abaixo e depois comente o "clim" junto com o "texto_clima
-        """
-
-        #print(data)
-        #print("O clima está", weather)
-        #print("Temperatura em ",city,"é de", temperatura,"°Celsius",)
-        #print("Com sensação térmica de",sensação_termica,"°Celsius")
-        #print("A temperatura máxima hoje foi de",temperatura_max,"°Celsius")
         clim =  f'''
        
         O clima está {weather}
@@ -46,6 +30,7 @@ def clima_python():
         Com sensação térmica de {sensação_termica}°Celsius)
         '''
         texto_clima["text"]= clim
+        
     else:
         erro = "Algo de errado não está certo! Tente novamente"
 
