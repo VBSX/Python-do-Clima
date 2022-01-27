@@ -1,13 +1,14 @@
 import requests
+from dotenv import load_dotenv
+from PIL import Image, ImageTk
+import os
+load_dotenv()
 
-API_KEY = "106dc89a610c7f04f0ebbd6186596a19"
+API_KEY = os.getenv("API_KEY")
 base_url = "http://api.openweathermap.org/data/2.5/weather"
 #http://api.openweathermap.org/data/2.5/weather?id=524901&appid={API_KEY}&lang={pt_br}#
 
-    
-
 city = input("Coloque a cidade desejada: ")
-#city = "maringa"
 request_url = f"{base_url}?appid={API_KEY}&q={city}&lang=pt_br"
 response = requests.get(request_url)
 #celcius = - 273.15 , 2
